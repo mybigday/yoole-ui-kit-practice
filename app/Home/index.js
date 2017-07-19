@@ -7,7 +7,7 @@ import {
   ToastAndroid,
   TouchableHighlight,
 } from 'react-native';
-import pxToDp from '../../util/pxToDp';
+import { pxToDpW, pxToDpH } from '../../util/pxToDp';
 import {
  NavBar,
  SideMenu,
@@ -42,7 +42,7 @@ class Home extends Component {
     return (
     	<View style={{ flex: 1 }}>
     		<NavBar
-    			style={{ height: pxToDp(40), }}
+    			style={{ height: pxToDpH(40), }}
     		/>
   			<SideMenu 
   				position='left' 
@@ -61,12 +61,12 @@ class Home extends Component {
 				      <TouchableHighlight
 				      	onPress={() => this.showLeftSideMenu()}>
 				      	<View 
-				      		style={{ height: pxToDp(20), width: pxToDp(20),	 borderRadius: 10, backgroundColor: '#e89792'	, }}
+				      		style={{ height: pxToDpW(20), width: pxToDpW(20),	 borderRadius: 10, backgroundColor: '#e89792'	, }}
 				      	/>
 				      </TouchableHighlight>
     				</View>
     				<View style={{ flex: 2, alignItems: 'center' }}>
-    					<Text style={{ fontSize: pxToDp(40) }}>
+    					<Text style={{ fontSize: pxToDpW(40) }}>
 				        MYBIGDAY
 				      </Text>
 				      <View style={{  flexDirection: 'row', alignItems: 'flex-end'}}>
@@ -89,7 +89,7 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
 	text: { 
-		fontSize: pxToDp(20),
+		fontSize: pxToDpW(20),
 		flex: 1,
 	},
 });

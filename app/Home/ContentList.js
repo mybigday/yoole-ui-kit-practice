@@ -6,36 +6,38 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import pxToDp from '../../util/pxToDp';
+import { pxToDpW } from '../../util/pxToDp';
+import { changeRouter } from '../../actions/router';
+import { connect } from 'react-redux';
 
 const list = [
   {
     text: '求婚規劃',
-    onPress: () => {},
+    router: 'PROPOSE_PLAN',
   },
   {
     text: '提親規劃',
-    onPress: () => {},
+    router: 'TIQIN_PLAN',
   },
   {
     text: '造型規劃',
-    onPress: () => {},
+    router: 'MODEL_PLAN',
   },
   {
     text: '拍攝婚紗',
-    onPress: () => {},
+    router: 'SHOT_GOWN',
   },
   {
     text: '邀請貴賓',
-    onPress: () => {},
+    router: 'INVITE_VIP',
   },
   {
     text: '喜餅回禮',
-    onPress: () => {},
+    router: 'CAKE_PRESENT',
   },
   {
     text: '場地準備',
-    onPress: () => {},
+    router: 'FIELD_PLAN',
   },
 ];
 
@@ -48,9 +50,9 @@ class ContentList extends Component {
             style={styles.listItem} 
             key={`item-${index}`}
             activeOpacity={0.6} 
-            {...item.onPress}
+            onPress={() => this.props.onChangeRouter(item.router)}
           >
-            <Text style={{ color: '#FFF', fontSize: pxToDp(40), }}>
+            <Text style={{ color: '#FFF', fontSize: pxToDpW(40), }}>
               {item.text}
             </Text>
           </TouchableOpacity>
@@ -68,5 +70,10 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapStateToProps = (state) => ({});
 
-export default ContentList;
+const mapDispatchToProps = (dispatch) => ({
+  onChangeRouter: (router) => dispatch(changeRouter(router)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentList);
